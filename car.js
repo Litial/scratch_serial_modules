@@ -97,8 +97,8 @@
             },
             success:function(msg){
                 currentStatus = 2; 
-                // info = msg;
-                // callback(info);
+                info = msg;
+                callback(info);
             }
         });
     };
