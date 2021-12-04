@@ -20,23 +20,23 @@
         return tmpResult;
     };
 
-//    ext.put_up = function(){        
-//        $.ajax({
-//            url:'http://localhost:8800/p',
-//            data:{
-//                dt:1
-//            }
-//        });
-//    };
+   ext.start = function(){        
+       $.ajax({
+           url:'http://localhost:8800/s',
+           data:{
+               dt:1
+           }
+       });
+   };
 
-//    ext.put_down = function(){     
-//        $.ajax({
-//            url:'http://localhost:8800/p',
-//            data:{
-//                dt:2
-//            }
-//        });
-//    };
+   ext.stop = function(){     
+       $.ajax({
+           url:'http://localhost:8800/s',
+           data:{
+               dt:2
+           }
+       });
+   };
 
     ext.move_forward = function(){
         $.ajax({
@@ -70,6 +70,15 @@
             url:'http://localhost:8800/t',
             data:{
                 dt:2
+            }
+        });
+    };
+
+	ext.time_delay = function(time){
+        $.ajax({
+            url:'http://localhost:8800/time',
+            data:{
+                dt:time
             }
         });
     };
@@ -111,12 +120,13 @@
     var descriptor = {
         blocks: [
             // 模块类型, 模块名称, 对应方法名称，参数依次对应的默认值
-            //[' ', '抬 起 ', 'put_up'],
-            //[' ', '放 下 ', 'put_down'],
+            [' ', '启 动 ', 'start'],
+            [' ', '刹 车 ', 'stop'],
             [' ', '向 前 ', 'move_forward'],
             [' ', '向 后 ', 'move_backword'],
             [' ', '左 转 ', 'turn_left'],
             [' ', '右 转 ', 'turn_right'],
+			[' ', '延时 %s 秒 ', 'time_delay','1'],
             [' ', '发送数据 %s ', 'send_message','1'],
             ['b', '连接成功', 'check_connection'],
             ['r', '最新接受数据', 'get_last_message'],
@@ -126,7 +136,7 @@
             my_first_menu:['one','two','three'],
             baudRates: [9600, 19200, 38400, 57600, 115200]
         },
-        url:'https://gitee.com/litial/scratch_serial_modules',
+        url:'https://github.com/Litial/scratch_serial_modules',
         displayName: '小车Demo'
     };
  
